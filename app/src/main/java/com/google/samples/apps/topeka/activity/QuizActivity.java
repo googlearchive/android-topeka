@@ -83,23 +83,23 @@ public class QuizActivity extends AppCompatActivity {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(final View v) {
-            switch (v.getId()) {
-                case R.id.fab_quiz:
-                    startQuizFromClickOn(v);
-                    break;
-                case R.id.submitAnswer:
-                    submitAnswer();
-                    break;
-                case R.id.quiz_done:
-                    ActivityCompat.finishAfterTransition(QuizActivity.this);
-                    break;
-                case R.id.back:
-                    onBackPressed();
-                    break;
-                default:
-                    throw new UnsupportedOperationException(
-                            "OnClick has not been implemented for " + getResources().
-                                    getResourceName(v.getId()));
+            int i = v.getId();
+            if (i == R.id.fab_quiz) {
+                startQuizFromClickOn(v);
+
+            } else if (i == R.id.submitAnswer) {
+                submitAnswer();
+
+            } else if (i == R.id.quiz_done) {
+                ActivityCompat.finishAfterTransition(QuizActivity.this);
+
+            } else if (i == R.id.back) {
+                onBackPressed();
+
+            } else {
+                throw new UnsupportedOperationException(
+                        "OnClick has not been implemented for " + getResources().
+                                getResourceName(v.getId()));
             }
         }
     };

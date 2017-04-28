@@ -126,27 +126,26 @@ public class QuizAdapter extends BaseAdapter {
     }
 
     private AbsQuizView createViewFor(Quiz quiz) {
-        switch (quiz.getType()) {
-            case ALPHA_PICKER:
-                return new AlphaPickerQuizView(mContext, mCategory, (AlphaPickerQuiz) quiz);
-            case FILL_BLANK:
-                return new FillBlankQuizView(mContext, mCategory, (FillBlankQuiz) quiz);
-            case FILL_TWO_BLANKS:
-                return new FillTwoBlanksQuizView(mContext, mCategory, (FillTwoBlanksQuiz) quiz);
-            case FOUR_QUARTER:
-                return new FourQuarterQuizView(mContext, mCategory, (FourQuarterQuiz) quiz);
-            case MULTI_SELECT:
-                return new MultiSelectQuizView(mContext, mCategory, (MultiSelectQuiz) quiz);
-            case PICKER:
-                return new PickerQuizView(mContext, mCategory, (PickerQuiz) quiz);
-            case SINGLE_SELECT:
-            case SINGLE_SELECT_ITEM:
-                return new SelectItemQuizView(mContext, mCategory, (SelectItemQuiz) quiz);
-            case TOGGLE_TRANSLATE:
-                return new ToggleTranslateQuizView(mContext, mCategory,
-                        (ToggleTranslateQuiz) quiz);
-            case TRUE_FALSE:
-                return new TrueFalseQuizView(mContext, mCategory, (TrueFalseQuiz) quiz);
+        com.google.samples.apps.topeka.model.quiz.QuizType i = quiz.getType();
+        if (i == com.google.samples.apps.topeka.model.quiz.QuizType.ALPHA_PICKER) {
+            return new AlphaPickerQuizView(mContext, mCategory, (AlphaPickerQuiz) quiz);
+        } else if (i == com.google.samples.apps.topeka.model.quiz.QuizType.FILL_BLANK) {
+            return new FillBlankQuizView(mContext, mCategory, (FillBlankQuiz) quiz);
+        } else if (i == com.google.samples.apps.topeka.model.quiz.QuizType.FILL_TWO_BLANKS) {
+            return new FillTwoBlanksQuizView(mContext, mCategory, (FillTwoBlanksQuiz) quiz);
+        } else if (i == com.google.samples.apps.topeka.model.quiz.QuizType.FOUR_QUARTER) {
+            return new FourQuarterQuizView(mContext, mCategory, (FourQuarterQuiz) quiz);
+        } else if (i == com.google.samples.apps.topeka.model.quiz.QuizType.MULTI_SELECT) {
+            return new MultiSelectQuizView(mContext, mCategory, (MultiSelectQuiz) quiz);
+        } else if (i == com.google.samples.apps.topeka.model.quiz.QuizType.PICKER) {
+            return new PickerQuizView(mContext, mCategory, (PickerQuiz) quiz);
+        } else if (i == com.google.samples.apps.topeka.model.quiz.QuizType.SINGLE_SELECT || i == com.google.samples.apps.topeka.model.quiz.QuizType.SINGLE_SELECT_ITEM) {
+            return new SelectItemQuizView(mContext, mCategory, (SelectItemQuiz) quiz);
+        } else if (i == com.google.samples.apps.topeka.model.quiz.QuizType.TOGGLE_TRANSLATE) {
+            return new ToggleTranslateQuizView(mContext, mCategory,
+                    (ToggleTranslateQuiz) quiz);
+        } else if (i == com.google.samples.apps.topeka.model.quiz.QuizType.TRUE_FALSE) {
+            return new TrueFalseQuizView(mContext, mCategory, (TrueFalseQuiz) quiz);
         }
         throw new UnsupportedOperationException(
                 "Quiz of type " + quiz.getType() + " can not be displayed.");

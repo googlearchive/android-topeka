@@ -119,11 +119,10 @@ public class CategorySelectionActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.sign_out: {
-                signOut();
-                return true;
-            }
+        int i = item.getItemId();
+        if (i == R.id.sign_out) {
+            signOut();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

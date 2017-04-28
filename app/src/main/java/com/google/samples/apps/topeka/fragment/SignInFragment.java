@@ -166,25 +166,25 @@ public class SignInFragment extends Fragment {
         mDoneFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.done:
-                        savePlayer(getActivity());
-                        removeDoneFab(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (null == mSelectedAvatarView) {
-                                    performSignInWithTransition(mAvatarGrid.getChildAt(
-                                            mSelectedAvatar.ordinal()));
-                                } else {
-                                    performSignInWithTransition(mSelectedAvatarView);
-                                }
+                int i = v.getId();
+                if (i == R.id.done) {
+                    savePlayer(getActivity());
+                    removeDoneFab(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (null == mSelectedAvatarView) {
+                                performSignInWithTransition(mAvatarGrid.getChildAt(
+                                        mSelectedAvatar.ordinal()));
+                            } else {
+                                performSignInWithTransition(mSelectedAvatarView);
                             }
-                        });
-                        break;
-                    default:
-                        throw new UnsupportedOperationException(
-                                "The onClick method has not been implemented for " + getResources()
-                                        .getResourceEntryName(v.getId()));
+                        }
+                    });
+
+                } else {
+                    throw new UnsupportedOperationException(
+                            "The onClick method has not been implemented for " + getResources()
+                                    .getResourceEntryName(v.getId()));
                 }
             }
         });

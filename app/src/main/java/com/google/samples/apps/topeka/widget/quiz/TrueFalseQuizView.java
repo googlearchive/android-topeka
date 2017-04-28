@@ -55,13 +55,13 @@ public class TrueFalseQuizView extends AbsQuizView<TrueFalseQuiz> {
         OnClickListener clickListener = new OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.answer_true:
-                        mAnswer = true;
-                        break;
-                    case R.id.answer_false:
-                        mAnswer = false;
-                        break;
+                int i = v.getId();
+                if (i == R.id.answer_true) {
+                    mAnswer = true;
+
+                } else if (i == R.id.answer_false) {
+                    mAnswer = false;
+
                 }
                 allowAnswer();
             }
