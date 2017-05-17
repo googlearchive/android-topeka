@@ -108,7 +108,7 @@ public class CategorySelectionFragment extends Fragment {
         ActivityCompat.startActivityForResult(activity,
                 startIntent,
                 REQUEST_CATEGORY,
-                transitionBundle);
+                null);
     }
 
 }
