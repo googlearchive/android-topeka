@@ -131,10 +131,6 @@ public class CategorySelectionActivity extends AppCompatActivity {
     private void signOut() {
         PreferencesHelper.signOut(this);
         TopekaDatabaseHelper.reset(this);
-        if (ApiLevelHelper.isAtLeast(Build.VERSION_CODES.LOLLIPOP)) {
-            getWindow().setExitTransition(TransitionInflater.from(this)
-                    .inflateTransition(R.transition.category_enter));
-        }
         SignInActivity.start(this, false);
         finish();
     }
