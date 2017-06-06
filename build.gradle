@@ -19,10 +19,13 @@
 buildscript {
 
     project.ext.compileSdkVersion = 25
-    project.ext.buildToolsVersion = "26.0.0-rc1"
+    project.ext.buildToolsVersion = "26.0.0-rc2"
     
     repositories {
         jcenter()
+        maven {
+          url 'https://maven.google.com'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0-alpha1'
@@ -34,6 +37,11 @@ buildscript {
 
 allprojects {
     repositories {
+
+        maven {
+          url 'https://maven.google.com'
+        }
+
         jcenter()
     }
 }
