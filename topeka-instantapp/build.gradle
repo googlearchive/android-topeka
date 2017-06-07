@@ -1,0 +1,7 @@
+apply plugin: 'com.android.instantapp'
+
+dependencies {
+    implementation project(':topeka-base')
+    implementation project(":topekaui")
+
+}
