@@ -157,7 +157,7 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         if (mSavedStateIsPlaying) {
-            mQuizFragment = (QuizFragment) getSupportFragmentManager().findFragmentByTag(
+            mQuizFragment = (QuizFragment) getFragmentManager().findFragmentByTag(
                     FRAGMENT_TAG);
             if (!mQuizFragment.hasSolvedStateListener()) {
                 mQuizFragment.setSolvedStateListener(getSolvedStateListener());
@@ -222,7 +222,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private void startQuizFromClickOn(final View clickedView) {
         initQuizFragment();
-        getSupportFragmentManager()
+        getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.quiz_fragment_container, mQuizFragment, FRAGMENT_TAG)
                 .commit();

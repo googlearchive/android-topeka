@@ -26,8 +26,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.transition.TransitionInflater;
@@ -111,7 +111,7 @@ public class CategorySelectionActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.category_container);
+        Fragment fragment = getFragmentManager().findFragmentById(R.id.category_container);
         if (fragment != null) {
             fragment.onActivityResult(requestCode, resultCode, data);
         }
@@ -136,12 +136,12 @@ public class CategorySelectionActivity extends AppCompatActivity {
     }
 
     private void attachCategoryGridFragment() {
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-        Fragment fragment = supportFragmentManager.findFragmentById(R.id.category_container);
+        FragmentManager fragmentManager = getFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentById(R.id.category_container);
         if (!(fragment instanceof CategorySelectionFragment)) {
             fragment = CategorySelectionFragment.newInstance();
         }
-        supportFragmentManager.beginTransaction()
+        fragmentManager.beginTransaction()
                 .replace(R.id.category_container, fragment)
                 .commit();
         setProgressBarVisibility(View.GONE);
@@ -151,4 +151,3 @@ public class CategorySelectionActivity extends AppCompatActivity {
         findViewById(R.id.progress).setVisibility(visibility);
     }
 }
-

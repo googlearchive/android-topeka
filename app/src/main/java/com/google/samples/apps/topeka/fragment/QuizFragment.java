@@ -49,7 +49,7 @@ import java.util.List;
 /**
  * Encapsulates Quiz solving and displays it to the user.
  */
-public class QuizFragment extends android.support.v4.app.Fragment {
+public class QuizFragment extends android.app.Fragment {
 
     private static final String KEY_USER_INPUT = "USER_INPUT";
     private TextView mProgressText;
