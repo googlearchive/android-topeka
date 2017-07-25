@@ -19,7 +19,7 @@
 buildscript {
 
     project.ext.compileSdkVersion = 26
-    project.ext.buildToolsVersion = "26.0.0"
+    project.ext.buildToolsVersion = "26.0.1"
 
     repositories {
         jcenter()
