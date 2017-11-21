@@ -17,8 +17,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    buildToolsVersion '26.0.1'
-    compileSdkVersion 26
+    buildToolsVersion '27.0.1'
+    compileSdkVersion 27
 
     dataBinding {
         enabled = true
@@ -27,7 +27,7 @@ android {
     defaultConfig {
         applicationId "com.google.samples.apps.topeka"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
@@ -45,7 +45,7 @@ android {
 }
 
 ext {
-    supportLibVersion = "26.0.0"
+    supportLibVersion = "27.0.1"
     espressoVersion = "2.2.2"
     androidTestVersion = "0.5"
     hamcrestVersion = "1.3"
