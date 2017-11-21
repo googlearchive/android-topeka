@@ -15,4 +15,4 @@
  */
 
 
-include ':app'
+include ':topeka-base', ':topekaapk', ':instantapp', ':topekaui'

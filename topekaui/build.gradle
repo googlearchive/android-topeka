@@ -1,0 +1,41 @@
+apply plugin: 'com.android.feature'
+
+android {
+    compileSdkVersion 26
+
+
+
+    dataBinding {
+        enabled true
+    }
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            postprocessing {
+                removeUnusedCode false
+                removeUnusedResources false
+                obfuscate false
+                optimizeCode false
+                proguardFile 'proguard-rules.pro'
+            }
+        }
+    }
+
+}
+
+dependencies {
+
+    api project(':topeka-base')
+
+}
