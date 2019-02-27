@@ -18,7 +18,6 @@ apply plugin: 'com.android.feature'
 apply plugin: 'kotlin-android'
 
 android {
-    buildToolsVersion rootProject.buildTools
     compileSdkVersion rootProject.compileSdk
 
     defaultConfig {
@@ -27,12 +26,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-        }
     }
 
     packagingOptions {
