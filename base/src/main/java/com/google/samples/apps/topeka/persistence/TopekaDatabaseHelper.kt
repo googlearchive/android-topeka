@@ -355,7 +355,7 @@ class TopekaDatabaseHelper private constructor(
                     MultiSelectQuiz(q, a, o, s)
                 }
             QuizType.PICKER.jsonName ->
-                PickerQuiz(question, Integer.valueOf(answer)!!, min, max, step, solved)
+                PickerQuiz(question, Integer.valueOf(answer), min, max, step, solved)
             QuizType.SINGLE_SELECT.jsonName, QuizType.SINGLE_SELECT_ITEM.jsonName ->
                 createStringOptionsQuiz(question, answer, options, solved) {
                     q, a, o, s ->

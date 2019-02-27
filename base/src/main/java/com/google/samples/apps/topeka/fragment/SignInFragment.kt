@@ -236,7 +236,7 @@ class SignInFragment : Fragment() {
     }
 
     private fun removeDoneFab(endAction: () -> Unit) {
-        ViewCompat.animate(doneFab)
+        ViewCompat.animate(doneFab!!)
                 .scaleX(0f)
                 .scaleY(0f)
                 .setInterpolator(FastOutSlowInInterpolator())

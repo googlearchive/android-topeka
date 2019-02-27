@@ -49,7 +49,7 @@ class QuizFragment : Fragment() {
 
     private val category by lazy(LazyThreadSafetyMode.NONE) {
         val categoryId = arguments!!.getString(Category.TAG)
-        activity!!.database().getCategoryWith(categoryId)
+        activity!!.database().getCategoryWith(categoryId!!)
     }
 
     private val quizAdapter by lazy(LazyThreadSafetyMode.NONE) {
@@ -130,7 +130,7 @@ class QuizFragment : Fragment() {
         activity?.requestLogin { player ->
                 if (player.valid()) {
                     avatarView?.setAvatar(player.avatar!!.drawableId)
-                    with(ViewCompat.animate(avatarView)) {
+                    with(ViewCompat.animate(avatarView!!)) {
                         interpolator = FastOutLinearInInterpolator()
                         startDelay = 500
                         scaleX(1f)

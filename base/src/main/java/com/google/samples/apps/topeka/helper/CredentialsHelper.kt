@@ -43,7 +43,7 @@ fun Activity.requestLogin(success: (Player) -> Unit) {
                     .build())
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    val player = Player(it.result.credential)
+                    val player = Player(it.result!!.credential)
                     storePlayerLocally(player)
                     success(player)
                 } else {

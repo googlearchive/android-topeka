@@ -96,9 +96,9 @@ class QuizActivity : AppCompatActivity() {
         if (null != savedInstanceState) {
             savedStateIsPlaying = savedInstanceState.getBoolean(STATE_IS_PLAYING)
         }
-        with(intent.data) {
-            if (path.startsWith("/quiz")) {
-                populate(lastPathSegment)
+        with(intent.data!!) {
+            if (path!!.startsWith("/quiz")) {
+                populate(lastPathSegment!!)
             } else {
                 Log.w(FRAGMENT_TAG, "Path is invalid, finishing activity")
                 ActivityLaunchHelper.launchCategorySelection(this@QuizActivity)
@@ -130,7 +130,7 @@ class QuizActivity : AppCompatActivity() {
                                 sharedElements,
                                 sharedElementSnapshots)
                         // Make sure to perform this animation after the transition has ended.
-                        ViewCompat.animate(toolbarBack)
+                        ViewCompat.animate(toolbarBack!!)
                                 .setStartDelay(startDelay)
                                 .scaleX(1f)
                                 .scaleY(1f)
@@ -229,7 +229,7 @@ class QuizActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
 
-        ViewCompat.animate(toolbarBack)
+        ViewCompat.animate(toolbarBack!!)
                 .scaleX(0f)
                 .scaleY(0f)
                 .alpha(0f)
@@ -237,14 +237,14 @@ class QuizActivity : AppCompatActivity() {
                 .start()
 
         // Scale the icon and fab to 0 size before calling onBackPressed if it exists.
-        ViewCompat.animate(icon)
+        ViewCompat.animate(icon!!)
                 .scaleX(.7f)
                 .scaleY(.7f)
                 .alpha(0f)
                 .setInterpolator(interpolator)
                 .start()
 
-        ViewCompat.animate(quizFab)
+        ViewCompat.animate(quizFab!!)
                 .scaleX(0f)
                 .scaleY(0f)
                 .setInterpolator(interpolator)
@@ -265,7 +265,7 @@ class QuizActivity : AppCompatActivity() {
         initQuizFragment()
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.quiz_fragment_container, quizFragment, FRAGMENT_TAG)
+                .replace(R.id.quiz_fragment_container, quizFragment!!, FRAGMENT_TAG)
                 .commit()
         val container = (findViewById<FrameLayout>(R.id.quiz_fragment_container)).apply {
             setBackgroundColor(ContextCompat.getColor(
@@ -385,6 +385,7 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
 
+            @SuppressLint("RestrictedApi")
             private fun showQuizFabWithDoneIcon() {
                 with(quizFab ?: return) {
                     setImageResource(RBase.drawable.ic_tick)
@@ -393,7 +394,7 @@ class QuizActivity : AppCompatActivity() {
                     scaleX = 0f
                     scaleY = 0f
                 }
-                ViewCompat.animate(quizFab)
+                ViewCompat.animate(quizFab!!)
                         .scaleX(1f)
                         .scaleY(1f)
                         .setInterpolator(interpolator)

@@ -22,10 +22,12 @@ import android.view.View
 
 class OffsetDecoration(private val offset: Int) : RecyclerView.ItemDecoration() {
 
-    override fun getItemOffsets(outRect: Rect,
-                                view: View,
-                                parent: RecyclerView,
-                                state: RecyclerView.State?) {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
         outRect.set(offset, offset, offset, offset)
     }
 }
